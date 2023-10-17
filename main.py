@@ -23,17 +23,9 @@ if __name__ == '__main__':
     print("Lecture du questionnaire.")
     quotes = []
 
-    def mix(entry):
-
-
-    random_order = []
-    for i in range(len(questions)):
-        n = random.randint(1, len(questions))
-        if n not in random_order:
-            random_order.append(n)
-    print(random_order)
 
     #modifié aléatoirement l'ordre des questions
+    random.shuffle(questions)
     for q in range(len(questions)):
         print("\tQ| " + str(q + 1) + ": \"" + questions[q][0] + "\"")
         for r in range(len(questions[q][1])):
