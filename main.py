@@ -1,5 +1,6 @@
 import qcm
 from difficulty import quoting, set_difficulty
+import random
 
 if __name__ == '__main__':
     filename = "./QCM.txt"
@@ -16,12 +17,22 @@ if __name__ == '__main__':
     #temp
     user = "?"
     diff = set_difficulty("severe")
-
     print("\n\n") #passement de ligne
     # Chargement du questionnaire
     questions = qcm.build_questionnaire(filename)
     print("Lecture du questionnaire.")
     quotes = []
+
+    def mix(entry):
+
+
+    random_order = []
+    for i in range(len(questions)):
+        n = random.randint(1, len(questions))
+        if n not in random_order:
+            random_order.append(n)
+    print(random_order)
+
     #modifié aléatoirement l'ordre des questions
     for q in range(len(questions)):
         print("\tQ| " + str(q + 1) + ": \"" + questions[q][0] + "\"")
