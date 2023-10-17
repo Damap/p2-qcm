@@ -4,6 +4,7 @@ from difficulty import quoting, set_difficulty
 if __name__ == '__main__':
     filename = "./QCM.txt"
     print("Bienvenue sur le QCM de projet 2 !")
+    """
     user = (input("Choissisez votre nom d'utilisateur C> "))
     print(f"Bonjour {user}")
     difficulty_choice = ""
@@ -11,6 +12,10 @@ if __name__ == '__main__':
         print("Vous devez choisir un niveau existant !")
         difficulty_choice = input("Sélectionné un niveau de difficulté (sympa/severe/mystere) C> ")
     diff = set_difficulty(difficulty_choice)
+    """
+    #temp
+    user = "?"
+    diff = set_difficulty("severe")
 
     print("\n\n") #passement de ligne
     # Chargement du questionnaire
@@ -23,7 +28,10 @@ if __name__ == '__main__':
         for r in range(len(questions[q][1])):
             print("\t\tA|" + str(r + 1) + ":" + f"\t{questions[q][1][r][0]}""")
         while True:
-            answer = int(input(f"{user} C> "))
+            try:
+                answer = int(input(f"{user} C> "))
+            except ValueError:
+                continue
             if 1 <= answer <= len(questions[q][1]):
                 if questions[q][1][answer-1][1]:
                     print("Bonne réponse !")
